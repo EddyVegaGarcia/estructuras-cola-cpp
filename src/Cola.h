@@ -1,5 +1,7 @@
-#ifndef COLA_H
+#ifndef COLA_H_
 #define COLA_H_
+
+#include "Nodo.h"
 
 /*
  * Una Cola es una estructura dinámica de datos organizada de acuerdo al
@@ -11,6 +13,12 @@
  *
  */
 class Cola {
+
+	private:
+
+        Nodo* frente;
+
+        Nodo* fondo;
 
     public:
 
