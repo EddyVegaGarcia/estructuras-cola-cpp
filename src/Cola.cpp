@@ -29,6 +29,9 @@ char Cola::desacolar() {
         /* remueve el frente de la estructura */
         Nodo* frenteAnterior = this->frente;
         this->frente = frenteAnterior->obtenerSiguiente();
+        if (frenteAnterior == this->fondo) {
+            this->fondo = NULL;
+        }
 
         /* devuelve el elemento y libera los recursos asociados */
         elemento = frenteAnterior->obtenerDato();
