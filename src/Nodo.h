@@ -5,13 +5,13 @@
 #define NULL 0
 #endif
 
-class Nodo {
+template<class T> class Nodo {
 
     private:
 
-        char dato;
+        T dato;
 
-        Nodo* siguiente;
+        Nodo<T>* siguiente;
 
     public:
 
@@ -19,23 +19,43 @@ class Nodo {
          * post: el Nodo resulta inicializado con el dato dado
          *       y sin un Nodo siguiente.
          */
-        Nodo(char dato);
+        Nodo(T dato) {
+
+            this->dato = dato;
+            this->siguiente = NULL;
+        }
+
         /*
          * post: devuelve el valor del dato.
          */
-        char obtenerDato();
+        T obtenerDato() {
+
+            return this->dato;
+        }
+
         /*
          * post: cambia el valor del dato.
          */
-        void cambiarDato(char nuevoDato);
+        void cambiarDato(T nuevoDato) {
+
+            this->dato = nuevoDato;
+        }
+
         /*
          * post: devuelve el siguiente Nodo.
          */
-        Nodo* obtenerSiguiente();
+        Nodo<T>* obtenerSiguiente() {
+
+            return this->siguiente;
+        }
+
         /*
          * post: cambia el siguiente Nodo por nuevoSiguiente.
          */
-        void cambiarSiguiente(Nodo* nuevoSiguiente);
+        void cambiarSiguiente(Nodo<T>* nuevoSiguiente) {
+
+            this->siguiente = nuevoSiguiente;
+        }
 };
 
 

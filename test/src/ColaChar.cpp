@@ -2,20 +2,16 @@
 #include "gtest/gtest.h"
 #include "Cola.h"
 
-/* hack/truco para poder correr las pruebas sin copiar los fuentes */
-#include "Cola.cpp"
-#include "Nodo.cpp"
-
 TEST( ColaCharTest, crear ) {
 
-    Cola cola;
+    Cola<char> cola;
 
     ASSERT_TRUE( cola.estaVacia() );
 }
 
 TEST( ColaCharTest, acolarUnUnicoElemento ) {
 
-    Cola cola;
+    Cola<char> cola;
 
     cola.acolar('D');
 
@@ -24,7 +20,7 @@ TEST( ColaCharTest, acolarUnUnicoElemento ) {
 
 TEST( ColaCharTest, acolarMultiplesElementos ) {
 
-    Cola cola;
+    Cola<char> cola;
 
     cola.acolar('O');
     cola.acolar('P');
@@ -35,7 +31,7 @@ TEST( ColaCharTest, acolarMultiplesElementos ) {
 
 TEST( ColaCharTestcolaDeCaracteres, desacolarElUnicoElementoAcolado ) {
 
-    Cola cola;
+    Cola<char> cola;
 
     cola.acolar('S');
     const char elemento = cola.desacolar();
@@ -46,7 +42,7 @@ TEST( ColaCharTestcolaDeCaracteres, desacolarElUnicoElementoAcolado ) {
 
 TEST( ColaCharTest, desacolaTresElementosCumpliendoFIFO ) {
 
-    Cola cola;
+    Cola<char> cola;
 
     cola.acolar('A');
     cola.acolar('B');
@@ -63,7 +59,7 @@ TEST( ColaCharTest, desacolaTresElementosCumpliendoFIFO ) {
 
 TEST( ColaCharTest, obtenerFrente ) {
 
-    Cola cola;
+    Cola<char> cola;
 
     cola.acolar('X');
     cola.acolar('Y');
@@ -75,7 +71,7 @@ TEST( ColaCharTest, obtenerFrente ) {
 
 TEST( ColaCharTest, obtenerFrenteNoModificaLaCola ) {
 
-    Cola cola;
+    Cola<char> cola;
 
     cola.acolar('X');
 
