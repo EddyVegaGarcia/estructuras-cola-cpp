@@ -29,7 +29,7 @@ TEST( ColaCharTest, acolarMultiplesElementos ) {
     ASSERT_FALSE( cola.estaVacia() );
 }
 
-TEST( ColaCharTestcolaDeCaracteres, desacolarElUnicoElementoAcolado ) {
+TEST( ColaCharTest, desacolarElUnicoElementoAcolado ) {
 
     Cola<char> cola;
 

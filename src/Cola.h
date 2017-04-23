@@ -73,7 +73,14 @@ template<class T>
 void Cola<T>::acolar(T elemento) {
 
     Nodo<T>* nuevoFondo = new Nodo<T>(elemento);
-    this->fondo->cambiarSiguiente(nuevoFondo);
+
+    if (this->estaVacia()) {
+        this->frente = nuevoFondo;
+
+    } else {
+        this->fondo->cambiarSiguiente(nuevoFondo);
+    }
+
     this->fondo = nuevoFondo;
 }
 
@@ -88,7 +95,8 @@ T Cola<T>::desacolar() {
         /* remueve el frente de la estructura */
         Nodo<T>* frenteAnterior = this->frente;
         this->frente = frenteAnterior->obtenerSiguiente();
-        if (frenteAnterior == this->fondo) {
+
+        if (this->frente == NULL) {
             this->fondo = NULL;
         }
 

@@ -49,11 +49,11 @@ TEST( ColaIntTest, desacolaTresElementosCumpliendoFIFO ) {
     cola.acolar(3);
 
     ASSERT_FALSE( cola.estaVacia() );
-    ASSERT_EQ( 3, cola.desacolar() );
+    ASSERT_EQ( 1, cola.desacolar() );
     ASSERT_FALSE( cola.estaVacia() );
     ASSERT_EQ( 2, cola.desacolar() );
     ASSERT_FALSE( cola.estaVacia() );
-    ASSERT_EQ( 1, cola.desacolar() );
+    ASSERT_EQ( 3, cola.desacolar() );
     ASSERT_TRUE( cola.estaVacia() );
 }
 
@@ -66,7 +66,7 @@ TEST( ColaIntTest, obtenerFrente ) {
     cola.acolar(16);
 
     ASSERT_FALSE( cola.estaVacia() );
-    ASSERT_EQ( 16, cola.obtenerFrente() );
+    ASSERT_EQ( 12, cola.obtenerFrente() );
 }
 
 TEST( ColaIntTest, obtenerTopeNoModificaLaCola ) {
