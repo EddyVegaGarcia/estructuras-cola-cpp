@@ -16,7 +16,14 @@ bool Cola::estaVacia() {
 void Cola::acolar(char elemento) {
 
     Nodo* nuevoFondo = new Nodo(elemento);
-    this->fondo->cambiarSiguiente(nuevoFondo);
+
+    if (this->estaVacia()) {
+        this->frente = nuevoFondo;
+
+    } else {
+        this->fondo->cambiarSiguiente(nuevoFondo);
+    }
+
     this->fondo = nuevoFondo;
 }
 
@@ -29,7 +36,8 @@ char Cola::desacolar() {
         /* remueve el frente de la estructura */
         Nodo* frenteAnterior = this->frente;
         this->frente = frenteAnterior->obtenerSiguiente();
-        if (frenteAnterior == this->fondo) {
+
+        if (this->frente == NULL) {
             this->fondo = NULL;
         }
 
