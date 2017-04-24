@@ -84,4 +84,16 @@ TEST( ColaCharTest, obtenerFrenteNoModificaLaCola ) {
     ASSERT_TRUE( cola.estaVacia() );
 }
 
+TEST( ColaCharTest, desacolarConLaColaVaciaLanzaExcepcion ) {
 
+    Cola<char> cola;
+
+    ASSERT_THROW(cola.desacolar(), std::string) << "Cola vacía";
+}
+
+TEST( ColaCharTest, obtenerFrenteConLaColaVaciaLanzaExcepcion ) {
+
+    Cola<char> cola;
+
+    ASSERT_THROW(cola.obtenerFrente(), std::string) << "Cola vacía";
+}

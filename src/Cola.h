@@ -1,6 +1,7 @@
 #ifndef COLA_H_
 #define COLA_H_
 
+#include <string>
 #include "Nodo.h"
 
 /*
@@ -87,23 +88,21 @@ void Cola<T>::acolar(T elemento) {
 template<class T>
 T Cola<T>::desacolar() {
 
-    /* si no existen elementos devuelve basura */
-    T elemento;
-
-    if (! this->estaVacia()) {
-
-        /* remueve el frente de la estructura */
-        Nodo<T>* frenteAnterior = this->frente;
-        this->frente = frenteAnterior->obtenerSiguiente();
-
-        if (this->frente == NULL) {
-            this->fondo = NULL;
-        }
-
-        /* devuelve el elemento y libera los recursos asociados */
-        elemento = frenteAnterior->obtenerDato();
-        delete frenteAnterior;
+    if (this->estaVacia()) {
+        throw std::string("No se puede desacolar, la cola está vacía.");
     }
+
+    /* remueve el frente de la estructura */
+    Nodo<T>* frenteAnterior = this->frente;
+    this->frente = frenteAnterior->obtenerSiguiente();
+
+    if (this->frente == NULL) {
+        this->fondo = NULL;
+    }
+
+    /* devuelve el elemento y libera los recursos asociados */
+    T elemento = frenteAnterior->obtenerDato();
+    delete frenteAnterior;
 
     return elemento;
 }
@@ -111,13 +110,11 @@ T Cola<T>::desacolar() {
 template<class T>
 T Cola<T>::obtenerFrente() {
 
-    /* si no existen elementos devuelve basura */
-    T elemento;
-
-    if (! this->estaVacia()) {
-
-        elemento = this->frente->obtenerDato();
+    if (this->estaVacia()) {
+        throw std::string("No se puede obtener el frente, la cola está vacía.");
     }
+
+    T elemento = this->frente->obtenerDato();
 
     return elemento;
 }
